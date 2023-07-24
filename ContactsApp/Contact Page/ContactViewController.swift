@@ -124,7 +124,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
         
         cell.cellTitleLabel.text = filterContactUsers(indexPath.section)[indexPath.row].name
-        cell.cellImageView.backgroundColor = .white
+        cell.cellImageView.backgroundColor = .lightGray
         cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
         let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
         cell.cellImageView.image = UIImage(named: imageName)
@@ -137,6 +137,15 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "UserDetailViewController", bundle: nil)
                     
         if let webVC = storyboard.instantiateViewController(withIdentifier: "UserDetailViewController") as? UserDetailViewController {
+            let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
+            let userName = filterContactUsers(indexPath.section)[indexPath.row].name
+            let contactType = filterContactUsers(indexPath.section)[indexPath.row].contactType.contactType
+
+
+            webVC.userImage = imageName
+            webVC.userName = userName
+            webVC.contactType = contactType
+
             self.navigationController?.pushViewController(webVC, animated: true)
         }
     }

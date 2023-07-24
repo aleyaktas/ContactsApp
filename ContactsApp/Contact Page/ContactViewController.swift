@@ -134,6 +134,11 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "UserDetailViewController", bundle: nil)
+                    
+        if let webVC = storyboard.instantiateViewController(withIdentifier: "UserDetailViewController") as? UserDetailViewController {
+            self.navigationController?.pushViewController(webVC, animated: true)
+        }
     }
     
     private func filterContactUsers(_ sectionIndex: Int) -> [ContactUserModel] {

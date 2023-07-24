@@ -7,11 +7,18 @@
 
 import UIKit
 
-struct ContactUserModel {
+struct ContactUserModel: Equatable {
     var name: String
     var gender: Gender
     var phoneNumber: String
     var contactType: ContactUserType
+    
+    static func == (lhs: ContactUserModel, rhs: ContactUserModel) -> Bool {
+        return lhs.name == rhs.name &&
+               lhs.gender == rhs.gender &&
+               lhs.phoneNumber == rhs.phoneNumber &&
+               lhs.contactType == rhs.contactType
+    }
 }
 
 enum ContactUserType: CaseIterable {
@@ -60,27 +67,24 @@ class Contacts {
         ContactUserModel(name: "John Doe", gender: .male, phoneNumber: "123-456-7890", contactType: .family),
         ContactUserModel(name: "Jane Smith", gender: .female, phoneNumber: "987-654-3210", contactType: .family),
         ContactUserModel(name: "Emily Davis", gender: .female, phoneNumber: "777-666-5555", contactType: .family),
-        ContactUserModel(name: "Michael Johnson", gender: .male, phoneNumber: "555-123-4567", contactType: .family),
+        ContactUserModel(name: "Jimmy John", gender: .male, phoneNumber: "555-123-4567", contactType: .family),
         ContactUserModel(name: "Robert Lee", gender: .male, phoneNumber: "222-999-3333", contactType: .family),
-        ContactUserModel(name: "Sophia Anderson", gender: .female, phoneNumber: "444-555-6666", contactType: .family),
+        ContactUserModel(name: "Sophia Ander", gender: .female, phoneNumber: "444-555-6666", contactType: .family),
         
         ContactUserModel(name: "Alice Brown", gender: .female, phoneNumber: "444-777-8888", contactType: .friends),
-        ContactUserModel(name: "William Taylor", gender: .male, phoneNumber: "666-888-9999", contactType: .friends),
+        ContactUserModel(name: "Will Taylor", gender: .male, phoneNumber: "666-888-9999", contactType: .friends),
         ContactUserModel(name: "Oliver Harris", gender: .male, phoneNumber: "111-333-5555", contactType: .friends),
-        ContactUserModel(name: "Isabella Allen", gender: .female, phoneNumber: "222-333-4444", contactType: .friends),
         ContactUserModel(name: "Lucas Carter", gender: .male, phoneNumber: "555-777-8888", contactType: .friends),
         ContactUserModel(name: "Ella Wilson", gender: .female, phoneNumber: "888-222-4444", contactType: .friends),
         
         ContactUserModel(name: "David Miller", gender: .male, phoneNumber: "888-222-4444", contactType: .work),
-        ContactUserModel(name: "William Taylor", gender: .male, phoneNumber: "666-888-9999", contactType: .work),
         ContactUserModel(name: "Emily Davis", gender: .female, phoneNumber: "777-666-5555", contactType: .work),
-        ContactUserModel(name: "Michael Johnson", gender: .male, phoneNumber: "555-123-4567", contactType: .work),
         ContactUserModel(name: "Ava White", gender: .female, phoneNumber: "888-777-4444", contactType: .work),
         ContactUserModel(name: "Sarah Wilson", gender: .female, phoneNumber: "111-333-5555", contactType: .work),
         
-        ContactUserModel(name: "James Anderson", gender: .male, phoneNumber: "444-555-6666", contactType: .neighbors),
-        ContactUserModel(name: "Olivia Martinez", gender: .female, phoneNumber: "222-333-4444", contactType: .neighbors),
-        ContactUserModel(name: "Sophia Hernandez", gender: .female, phoneNumber: "555-777-8888", contactType: .neighbors),
+        ContactUserModel(name: "James Ander", gender: .male, phoneNumber: "444-555-6666", contactType: .neighbors),
+        ContactUserModel(name: "Olivia Martin", gender: .female, phoneNumber: "222-333-4444", contactType: .neighbors),
+        ContactUserModel(name: "Sophia Hernan", gender: .female, phoneNumber: "555-777-8888", contactType: .neighbors),
         ContactUserModel(name: "Noah Green", gender: .male, phoneNumber: "111-555-9999", contactType: .neighbors),
         ContactUserModel(name: "Ethan Hall", gender: .male, phoneNumber: "333-222-1111", contactType: .neighbors),
         ContactUserModel(name: "Lily Murphy", gender: .female, phoneNumber: "777-888-9999", contactType: .neighbors),
@@ -140,11 +144,18 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
             let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
             let userName = filterContactUsers(indexPath.section)[indexPath.row].name
             let contactType = filterContactUsers(indexPath.section)[indexPath.row].contactType.contactType
-
-
+            let selectedUser = filterContactUsers(indexPath.section)[indexPath.row]
+            
+            var filterUser = filterContactUsers(indexPath.section)
+               if let indexToRemove = filterUser.firstIndex(of: selectedUser) {
+                   filterUser.remove(at: indexToRemove)
+               }
+            
+            webVC.userList = filterUser
             webVC.userImage = imageName
             webVC.userName = userName
             webVC.contactType = contactType
+            
 
             self.navigationController?.pushViewController(webVC, animated: true)
         }

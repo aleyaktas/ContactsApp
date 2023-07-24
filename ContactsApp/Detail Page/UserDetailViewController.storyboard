@@ -25,10 +25,10 @@
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-3D-DtC">
-                                <rect key="frame" x="8" y="307" width="377" height="200"/>
+                                <rect key="frame" x="8" y="319" width="377" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="qKK-cl-jkm"/>
+                                    <constraint firstAttribute="height" constant="150" id="qKK-cl-jkm"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7gZ-DQ-JZF">
                                     <size key="itemSize" width="150" height="150"/>
@@ -73,13 +73,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJv-Hz-QoO">
-                                <rect key="frame" x="175.66666666666666" y="237" width="42" height="21"/>
+                                <rect key="frame" x="175.66666666666666" y="249" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUV-mz-lvL">
-                                <rect key="frame" x="175.66666666666666" y="266" width="42" height="21"/>
+                                <rect key="frame" x="175.66666666666666" y="278" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                             <constraint firstItem="4Dr-Dm-JNm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="hv5-Mv-eJV"/>
                             <constraint firstItem="bJv-Hz-QoO" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jgW-ek-FCj"/>
                             <constraint firstItem="XUV-mz-lvL" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="o3M-jK-Lko"/>
-                            <constraint firstItem="bJv-Hz-QoO" firstAttribute="top" secondItem="4Dr-Dm-JNm" secondAttribute="bottom" constant="8" id="y16-qv-OrP"/>
+                            <constraint firstItem="bJv-Hz-QoO" firstAttribute="top" secondItem="4Dr-Dm-JNm" secondAttribute="bottom" constant="20" id="y16-qv-OrP"/>
                             <constraint firstItem="ba5-3D-DtC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="z76-ew-wbO"/>
                         </constraints>
                     </view>

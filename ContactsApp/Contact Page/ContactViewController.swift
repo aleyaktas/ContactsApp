@@ -107,8 +107,21 @@ class ContactViewController: UIViewController {
         title = "Your Contacts"
         contactTableView.delegate = self
         contactTableView.dataSource = self
+        let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .done, target: self, action: #selector(filterButtonAct))
+        filterButton.tintColor = UIColor.purple
+        navigationItem.rightBarButtonItem = filterButton
+    }
+    @objc private func filterButtonAct() {
+        let storyboard = UIStoryboard(name: "ContactPickerViewController", bundle: nil)
+        
+        if let vc = storyboard.instantiateViewController(identifier: "ContactPickerViewController") as? ContactPickerViewController {
+            vc.modalPresentationStyle = .overCurrentContext
+            self.present(vc, animated: true)
+        }
     }
 }
+
+
 
 extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     

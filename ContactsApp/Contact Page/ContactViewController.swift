@@ -69,7 +69,7 @@ class Contacts {
         ContactUserModel(name: "Emily Davis", gender: .female, phoneNumber: "777-666-5555", contactType: .family),
         ContactUserModel(name: "Jimmy John", gender: .male, phoneNumber: "555-123-4567", contactType: .family),
         ContactUserModel(name: "Robert Lee", gender: .male, phoneNumber: "222-999-3333", contactType: .family),
-        ContactUserModel(name: "Sophia Ander", gender: .female, phoneNumber: "444-555-6666", contactType: .family),
+        ContactUserModel(name: "Sophia Anna", gender: .female, phoneNumber: "444-555-6666", contactType: .family),
         
         ContactUserModel(name: "Alice Brown", gender: .female, phoneNumber: "444-777-8888", contactType: .friends),
         ContactUserModel(name: "Will Taylor", gender: .male, phoneNumber: "666-888-9999", contactType: .friends),
@@ -84,12 +84,11 @@ class Contacts {
         
         ContactUserModel(name: "James Ander", gender: .male, phoneNumber: "444-555-6666", contactType: .neighbors),
         ContactUserModel(name: "Olivia Martin", gender: .female, phoneNumber: "222-333-4444", contactType: .neighbors),
-        ContactUserModel(name: "Sophia Hernan", gender: .female, phoneNumber: "555-777-8888", contactType: .neighbors),
         ContactUserModel(name: "Noah Green", gender: .male, phoneNumber: "111-555-9999", contactType: .neighbors),
         ContactUserModel(name: "Ethan Hall", gender: .male, phoneNumber: "333-222-1111", contactType: .neighbors),
         ContactUserModel(name: "Lily Murphy", gender: .female, phoneNumber: "777-888-9999", contactType: .neighbors),
         
-        ContactUserModel(name: "Liam Robinson", gender: .male, phoneNumber: "333-222-1111", contactType: .university),
+        ContactUserModel(name: "Liam Robin", gender: .male, phoneNumber: "333-222-1111", contactType: .university),
         ContactUserModel(name: "Ava White", gender: .female, phoneNumber: "888-777-4444", contactType: .university),
         ContactUserModel(name: "Noah Green", gender: .male, phoneNumber: "111-555-9999", contactType: .university),
         ContactUserModel(name: "Emma Turner", gender: .female, phoneNumber: "222-333-4444", contactType: .university),
@@ -113,6 +112,7 @@ class ContactViewController: UIViewController {
         title = "Your Contacts"
         contactTableView.delegate = self
         contactTableView.dataSource = self
+        
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .done, target: self, action: #selector(filterButtonAct))
         filterButton.tintColor = UIColor(named: "pink")
         navigationItem.rightBarButtonItem = filterButton
@@ -152,7 +152,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
         
         cell.cellTitleLabel.text = filterContactUsers(indexPath.section)[indexPath.row].name
-        cell.cellImageView.backgroundColor = .white
+        cell.cellImageView.backgroundColor = UIColor(named: "gray")
         cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
         let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
         cell.cellImageView.image = UIImage(named: imageName)

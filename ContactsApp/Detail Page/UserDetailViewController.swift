@@ -26,7 +26,8 @@ class UserDetailViewController: UIViewController {
     
     var userInfoTitles = ["Name", "Contact Type", "Phone Number"]
 
-    
+    var favoriteButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         usersCollectionView.dataSource = self
@@ -35,8 +36,10 @@ class UserDetailViewController: UIViewController {
         userInfoTableView.dataSource = self
         userInfoTableView.delegate = self
         
-        navigationController?.navigationBar.tintColor = .white
+        usersCollectionView.showsHorizontalScrollIndicator = false
 
+        navigationController?.navigationBar.tintColor = .white
+        
         let gradientLayer = CAGradientLayer()
 
         let startColor = UIColor(red: 215/255, green: 165/255, blue: 140/255, alpha: 1).cgColor
@@ -74,10 +77,10 @@ extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         let userImage = userList[indexPath.row].gender.genderType
         cell.name.text = userList[indexPath.row].name
         cell.image.image = UIImage(named: userImage)
-        cell.image.backgroundColor = .white
+        cell.image.backgroundColor = UIColor(named: "gray")
         cell.image.layer.cornerRadius = cell.image.layer.frame.height / 2
-        cell.image.layer.borderWidth = 1.0
-        cell.image.layer.borderColor = UIColor.systemPink.cgColor
+        cell.image.layer.borderWidth = 0.4
+        cell.image.layer.borderColor = UIColor.purple.cgColor
         return cell
     }
     
@@ -88,7 +91,7 @@ extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
+        return 10
     }
 }
 

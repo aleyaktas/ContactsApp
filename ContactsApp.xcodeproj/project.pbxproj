@@ -43,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6148C3C2A6FF79400FBD6B7 /* ContactPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerViewController.swift; sourceTree = "<group>"; };
+		A6148C3D2A6FF79700FBD6B7 /* ContactPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactPickerViewController.storyboard; sourceTree = "<group>"; };
 		A69DC9182A6F37850067F580 /* ContactPickerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ContactPickerViewController.storyboard; path = ../../../../Desktop/20June_LiveCoding/20June_LiveCoding/ContactPickerViewController.storyboard; sourceTree = "<group>"; };
 		A69DC91A2A6F378E0067F580 /* ContactPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactPickerViewController.swift; path = ../../../../Desktop/20June_LiveCoding/20June_LiveCoding/ContactPickerViewController.swift; sourceTree = "<group>"; };
 		A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6148C3B2A6FF78B00FBD6B7 /* Picker View */ = {
+			isa = PBXGroup;
+			children = (
+				A6148C3D2A6FF79700FBD6B7 /* ContactPickerViewController.storyboard */,
+				A6148C3C2A6FF79400FBD6B7 /* ContactPickerViewController.swift */,
+			);
+			path = "Picker View";
+			sourceTree = "<group>";
+		};
 		A6C010332A6C70EC00ACBBB0 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +155,7 @@
 		A6C0106F2A6C72F100ACBBB0 /* Contact Page */ = {
 			isa = PBXGroup;
 			children = (
+				A6148C3B2A6FF78B00FBD6B7 /* Picker View */,
 				A6C010702A6C736F00ACBBB0 /* ContactViewController.storyboard */,
 				A6C010722A6C737B00ACBBB0 /* ContactViewController.swift */,
 				A69DC91A2A6F378E0067F580 /* ContactPickerViewController.swift */,

@@ -98,7 +98,7 @@ extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width / 3.0 - 30
+        let width = collectionView.bounds.width / 3.0 - 10
         let height = collectionView.bounds.height
         return CGSize(width: width, height: height)
     }

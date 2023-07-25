@@ -102,6 +102,12 @@ class ContactViewController: UIViewController {
 
     @IBOutlet weak var contactTableView: UITableView!
     
+    private var selectedContactType: ContactUserType? {
+        didSet {
+            contactTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Your Contacts"
@@ -113,20 +119,24 @@ class ContactViewController: UIViewController {
     }
     @objc private func filterButtonAct() {
         let storyboard = UIStoryboard(name: "ContactPickerViewController", bundle: nil)
-        
         if let vc = storyboard.instantiateViewController(identifier: "ContactPickerViewController") as? ContactPickerViewController {
+            vc.delegate = self
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated: true)
         }
     }
 }
 
-
+extension ContactViewController: ContactPickerViewDelegate {
+    func didSelectContactType(_ type: ContactUserType) {
+        selectedContactType = type
+    }
+}
 
 extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return ContactUserType.allCases.count
+        return setSections().count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -134,7 +144,8 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ContactUserType.allCases[section].contactType
+        return setSections()[section].contactType
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,14 +156,14 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
         let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
         cell.cellImageView.image = UIImage(named: imageName)
-    
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "UserDetailViewController", bundle: nil)
-                    
+        
         if let webVC = storyboard.instantiateViewController(withIdentifier: "UserDetailViewController") as? UserDetailViewController {
             let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
             let userName = filterContactUsers(indexPath.section)[indexPath.row].name
@@ -160,21 +171,33 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
             let selectedUser = filterContactUsers(indexPath.section)[indexPath.row]
             
             var filterUser = filterContactUsers(indexPath.section)
-               if let indexToRemove = filterUser.firstIndex(of: selectedUser) {
-                   filterUser.remove(at: indexToRemove)
-               }
+            if let indexToRemove = filterUser.firstIndex(of: selectedUser) {
+                filterUser.remove(at: indexToRemove)
+            }
             
             webVC.userList = filterUser
             webVC.userImage = imageName
             webVC.userName = userName
             webVC.contactType = contactType
             
-
             self.navigationController?.pushViewController(webVC, animated: true)
         }
     }
     
+    private func setSections() -> [ContactUserType] {
+        if let selectedContactType = selectedContactType, selectedContactType != .allContacts {
+            return [selectedContactType]
+        } else {
+            return ContactUserType.allCases
+            
+        }
+    }
+    
     private func filterContactUsers(_ sectionIndex: Int) -> [ContactUserModel] {
-        return Contacts.contacts.filter({ $0.contactType == ContactUserType.allCases[sectionIndex] })
+        if selectedContactType == nil || selectedContactType == .allContacts {
+            return Contacts.contacts.filter({ $0.contactType == ContactUserType.allCases[sectionIndex] })
+        } else {
+            return Contacts.contacts.filter({ $0.contactType == selectedContactType })
+        }
     }
 }

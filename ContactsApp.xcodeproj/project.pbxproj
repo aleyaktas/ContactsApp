@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A69DC9192A6F37850067F580 /* ContactPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69DC9182A6F37850067F580 /* ContactPickerViewController.storyboard */; };
 		A69DC91B2A6F378E0067F580 /* ContactPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DC91A2A6F378E0067F580 /* ContactPickerViewController.swift */; };
+		A69DC91D2A6FC7F50067F580 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */; };
 		A6C010402A6C70EC00ACBBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C0103F2A6C70EC00ACBBB0 /* AppDelegate.swift */; };
 		A6C010422A6C70EC00ACBBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C010412A6C70EC00ACBBB0 /* SceneDelegate.swift */; };
 		A6C010492A6C70EE00ACBBB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C010482A6C70EE00ACBBB0 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		A69DC9182A6F37850067F580 /* ContactPickerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ContactPickerViewController.storyboard; path = ../../../../Desktop/20June_LiveCoding/20June_LiveCoding/ContactPickerViewController.storyboard; sourceTree = "<group>"; };
 		A69DC91A2A6F378E0067F580 /* ContactPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactPickerViewController.swift; path = ../../../../Desktop/20June_LiveCoding/20June_LiveCoding/ContactPickerViewController.swift; sourceTree = "<group>"; };
+		A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A6C0103C2A6C70EC00ACBBB0 /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C0103F2A6C70EC00ACBBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6C010412A6C70EC00ACBBB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				A6C010792A6F049100ACBBB0 /* UserDetailViewController.swift */,
 				A6C0107B2A6F04AD00ACBBB0 /* UserDetailViewController.storyboard */,
 				A6C0107D2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift */,
+				A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */,
 			);
 			path = "Detail Page";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				A6C0107A2A6F049100ACBBB0 /* UserDetailViewController.swift in Sources */,
 				A69DC91B2A6F378E0067F580 /* ContactPickerViewController.swift in Sources */,
 				A6C0107E2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift in Sources */,
+				A69DC91D2A6FC7F50067F580 /* UserInfoTableViewCell.swift in Sources */,
 				A6C010402A6C70EC00ACBBB0 /* AppDelegate.swift in Sources */,
 				A6C010422A6C70EC00ACBBB0 /* SceneDelegate.swift in Sources */,
 				A6C010732A6C737B00ACBBB0 /* ContactViewController.swift in Sources */,

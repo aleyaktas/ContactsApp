@@ -114,7 +114,7 @@ class ContactViewController: UIViewController {
         contactTableView.delegate = self
         contactTableView.dataSource = self
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .done, target: self, action: #selector(filterButtonAct))
-        filterButton.tintColor = UIColor.purple
+        filterButton.tintColor = UIColor(named: "pink")
         navigationItem.rightBarButtonItem = filterButton
     }
     @objc private func filterButtonAct() {
@@ -152,7 +152,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
         
         cell.cellTitleLabel.text = filterContactUsers(indexPath.section)[indexPath.row].name
-        cell.cellImageView.backgroundColor = .lightGray
+        cell.cellImageView.backgroundColor = .white
         cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
         let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
         cell.cellImageView.image = UIImage(named: imageName)
@@ -168,6 +168,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
             let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
             let userName = filterContactUsers(indexPath.section)[indexPath.row].name
             let contactType = filterContactUsers(indexPath.section)[indexPath.row].contactType.contactType
+            let phoneNumber = filterContactUsers(indexPath.section)[indexPath.row].phoneNumber
             let selectedUser = filterContactUsers(indexPath.section)[indexPath.row]
             
             var filterUser = filterContactUsers(indexPath.section)
@@ -179,6 +180,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
             webVC.userImage = imageName
             webVC.userName = userName
             webVC.contactType = contactType
+            webVC.phoneNumber = phoneNumber
             
             self.navigationController?.pushViewController(webVC, animated: true)
         }

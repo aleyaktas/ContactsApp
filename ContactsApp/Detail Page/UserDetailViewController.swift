@@ -27,6 +27,8 @@ class UserDetailViewController: UIViewController {
     var userInfoTitles = ["Name", "Contact Type", "Phone Number"]
 
     var favoriteButton: UIBarButtonItem!
+    var gradientLayer = CAGradientLayer()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,6 @@ class UserDetailViewController: UIViewController {
 
         navigationController?.navigationBar.tintColor = .white
         
-        let gradientLayer = CAGradientLayer()
 
         let startColor = UIColor(red: 215/255, green: 165/255, blue: 140/255, alpha: 1).cgColor
         let endColor = UIColor(red: 215/255, green: 80/255, blue: 120/255, alpha: 1).cgColor
@@ -51,7 +52,7 @@ class UserDetailViewController: UIViewController {
         topView.layer.insertSublayer(gradientLayer, at: 0)
         
         bottomView.roundCorners(corners: [.topLeft, .topRight], radius: 50)
-                
+
         if let userImage, let userName, let phoneNumber, let contactType {
             userImageView.image = UIImage(named: userImage)
             userImageView.backgroundColor = .white
@@ -64,6 +65,18 @@ class UserDetailViewController: UIViewController {
         }
         userImageView.layer.cornerRadius = userImageView.layer.frame.height / 2
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateGradientLayerFrame()
+        bottomView.roundCorners(corners: [.topLeft, .topRight], radius: 50)
+
+    }
+    func updateGradientLayerFrame() {
+        gradientLayer.frame = topView.bounds
+        gradientLayer.locations = [0, NSNumber(value: Float(topView.bounds.width / topView.bounds.height)), 1]
+    }
+
 }
 
 extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

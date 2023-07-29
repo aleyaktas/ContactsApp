@@ -190,55 +190,10 @@
             </objects>
             <point key="canvasLocation" x="622.13740458015263" y="7.746478873239437"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="goV-Y6-Yvn">
-            <objects>
-                <viewController id="dmo-8k-Trw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LAb-5r-JPc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8I4-Ia-lSt">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-CA-nkD">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <constraints>
-                                    <constraint firstItem="jfm-CA-nkD" firstAttribute="top" secondItem="8I4-Ia-lSt" secondAttribute="top" id="6RZ-tg-e4d"/>
-                                    <constraint firstItem="jfm-CA-nkD" firstAttribute="top" secondItem="8I4-Ia-lSt" secondAttribute="top" id="cwk-I2-S9V"/>
-                                    <constraint firstItem="jfm-CA-nkD" firstAttribute="leading" secondItem="8I4-Ia-lSt" secondAttribute="leading" id="s9I-7G-auW"/>
-                                    <constraint firstItem="jfm-CA-nkD" firstAttribute="leading" secondItem="8I4-Ia-lSt" secondAttribute="leading" id="wBL-VN-avw"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Kr9-V8-wE5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="8I4-Ia-lSt" firstAttribute="top" secondItem="LAb-5r-JPc" secondAttribute="top" id="6dS-iY-jly"/>
-                            <constraint firstItem="8I4-Ia-lSt" firstAttribute="leading" secondItem="LAb-5r-JPc" secondAttribute="leading" id="7QY-kh-77b"/>
-                            <constraint firstItem="jfm-CA-nkD" firstAttribute="height" secondItem="LAb-5r-JPc" secondAttribute="height" multiplier="0.5" id="7j2-m1-JC3"/>
-                            <constraint firstItem="8I4-Ia-lSt" firstAttribute="height" secondItem="LAb-5r-JPc" secondAttribute="height" id="FxC-AX-Hna"/>
-                            <constraint firstItem="8I4-Ia-lSt" firstAttribute="width" secondItem="LAb-5r-JPc" secondAttribute="width" id="Lso-WY-V0r"/>
-                            <constraint firstItem="jfm-CA-nkD" firstAttribute="width" secondItem="LAb-5r-JPc" secondAttribute="width" id="iTf-cN-eO5"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="uWy-Ox-f0s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TH1-bT-zYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1540" y="14"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

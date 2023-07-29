@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contact Picker View Controller-->
+        <scene sceneID="awZ-TC-oos">
+            <objects>
+                <viewController storyboardIdentifier="ContactPickerViewController" id="Wrj-Tr-lTq" customClass="ContactPickerViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2JZ-0B-wpG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJh-1f-cEM">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xeb-sx-EOJ">
+                                <rect key="frame" x="0.0" y="640" width="393" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tr-ke-B8F">
+                                        <rect key="frame" x="310" y="8" width="75" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="6ZR-5z-nN0"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Done">
+                                            <color key="baseForegroundColor" red="0.78823530669999997" green="0.41568624970000001" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="doneButtonAct:" destination="Wrj-Tr-lTq" eventType="touchUpInside" id="VAu-Ny-7bP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzG-zC-ZC6">
+                                        <rect key="frame" x="8" y="8" width="77" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="ZIx-4g-Ii8"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                            <color key="baseForegroundColor" red="0.78823530669999997" green="0.41568624970000001" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3Tr-ke-B8F" secondAttribute="trailing" constant="8" id="EiI-fV-BR1"/>
+                                    <constraint firstAttribute="height" constant="50" id="NL2-BP-hmn"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Tr-ke-B8F" secondAttribute="bottom" constant="8" id="Slf-QV-s4Z"/>
+                                    <constraint firstItem="FzG-zC-ZC6" firstAttribute="leading" secondItem="Xeb-sx-EOJ" secondAttribute="leading" constant="8" id="gN1-UV-JtX"/>
+                                    <constraint firstItem="3Tr-ke-B8F" firstAttribute="top" secondItem="Xeb-sx-EOJ" secondAttribute="top" constant="8" id="gxN-ub-PjQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FzG-zC-ZC6" secondAttribute="bottom" constant="8" id="qQn-ML-KUZ"/>
+                                    <constraint firstItem="FzG-zC-ZC6" firstAttribute="top" secondItem="Xeb-sx-EOJ" secondAttribute="top" constant="8" id="xDR-bS-JnD"/>
+                                </constraints>
+                            </view>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPM-7R-cSH">
+                                <rect key="frame" x="0.0" y="690" width="393" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="nlp-JJ-kev"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Iug-PG-AIe"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WJh-1f-cEM" firstAttribute="trailing" secondItem="Iug-PG-AIe" secondAttribute="trailing" id="G27-F1-zKM"/>
+                            <constraint firstItem="WJh-1f-cEM" firstAttribute="top" secondItem="2JZ-0B-wpG" secondAttribute="top" id="PET-7x-l26"/>
+                            <constraint firstItem="OPM-7R-cSH" firstAttribute="top" secondItem="Xeb-sx-EOJ" secondAttribute="bottom" id="StM-g2-U9r"/>
+                            <constraint firstItem="Iug-PG-AIe" firstAttribute="trailing" secondItem="Xeb-sx-EOJ" secondAttribute="trailing" id="bmG-ez-BBf"/>
+                            <constraint firstItem="WJh-1f-cEM" firstAttribute="leading" secondItem="2JZ-0B-wpG" secondAttribute="leading" id="buP-hw-YMU"/>
+                            <constraint firstItem="Xeb-sx-EOJ" firstAttribute="leading" secondItem="Iug-PG-AIe" secondAttribute="leading" id="edg-nS-CSc"/>
+                            <constraint firstItem="OPM-7R-cSH" firstAttribute="trailing" secondItem="Iug-PG-AIe" secondAttribute="trailing" id="i4Y-Ll-Ac3"/>
+                            <constraint firstAttribute="bottom" secondItem="WJh-1f-cEM" secondAttribute="bottom" id="kuo-ic-P5W"/>
+                            <constraint firstAttribute="bottom" secondItem="OPM-7R-cSH" secondAttribute="bottom" id="lUw-uy-FXJ"/>
+                            <constraint firstItem="OPM-7R-cSH" firstAttribute="leading" secondItem="Iug-PG-AIe" secondAttribute="leading" id="teJ-no-Sgn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterPickerView" destination="OPM-7R-cSH" id="F5B-0F-cqP"/>
+                        <outlet property="topView" destination="Xeb-sx-EOJ" id="h1B-hm-Fy4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KML-Yw-00G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14.503816793893129" y="36.619718309859159"/>
+        </scene>
+    </scenes>
+</document>

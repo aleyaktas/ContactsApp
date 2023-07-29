@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A609CCFF2A75BCED00459630 /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A609CCFD2A75BCED00459630 /* ContactsApp.xcdatamodeld */; };
+		A6342EE22A75B9FD00978508 /* ContactPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6342EE12A75B9FD00978508 /* ContactPickerViewController.storyboard */; };
+		A6342EE42A75BA1500978508 /* ContacPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6342EE32A75BA1500978508 /* ContacPickerViewController.swift */; };
 		A69DC91D2A6FC7F50067F580 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */; };
 		A6C010402A6C70EC00ACBBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C0103F2A6C70EC00ACBBB0 /* AppDelegate.swift */; };
 		A6C010422A6C70EC00ACBBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C010412A6C70EC00ACBBB0 /* SceneDelegate.swift */; };
@@ -21,7 +24,6 @@
 		A6C0107A2A6F049100ACBBB0 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C010792A6F049100ACBBB0 /* UserDetailViewController.swift */; };
 		A6C0107C2A6F04AD00ACBBB0 /* UserDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C0107B2A6F04AD00ACBBB0 /* UserDetailViewController.storyboard */; };
 		A6C0107E2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C0107D2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift */; };
-		A6D9FF4E2A71155500CBED88 /* ContactPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6148C3C2A6FF79400FBD6B7 /* ContactPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A6148C3C2A6FF79400FBD6B7 /* ContactPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerViewController.swift; sourceTree = "<group>"; };
-		A6148C3D2A6FF79700FBD6B7 /* ContactPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactPickerViewController.storyboard; sourceTree = "<group>"; };
+		A609CCFE2A75BCED00459630 /* ContactsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsApp.xcdatamodel; sourceTree = "<group>"; };
+		A6342EE12A75B9FD00978508 /* ContactPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactPickerViewController.storyboard; sourceTree = "<group>"; };
+		A6342EE32A75BA1500978508 /* ContacPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContacPickerViewController.swift; sourceTree = "<group>"; };
 		A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A6C0103C2A6C70EC00ACBBB0 /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C0103F2A6C70EC00ACBBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6342EE02A75B9E500978508 /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				A6342EE12A75B9FD00978508 /* ContactPickerViewController.storyboard */,
+				A6342EE32A75BA1500978508 /* ContacPickerViewController.swift */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
 		A6C010332A6C70EC00ACBBB0 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 				A6C010482A6C70EE00ACBBB0 /* Assets.xcassets */,
 				A6C0104A2A6C70EE00ACBBB0 /* LaunchScreen.storyboard */,
 				A6C0104D2A6C70EE00ACBBB0 /* Info.plist */,
+				A609CCFD2A75BCED00459630 /* ContactsApp.xcdatamodeld */,
 			);
 			path = ContactsApp;
 			sourceTree = "<group>";
@@ -143,8 +156,7 @@
 		A6C0106F2A6C72F100ACBBB0 /* Contact Page */ = {
 			isa = PBXGroup;
 			children = (
-				A6148C3D2A6FF79700FBD6B7 /* ContactPickerViewController.storyboard */,
-				A6148C3C2A6FF79400FBD6B7 /* ContactPickerViewController.swift */,
+				A6342EE02A75B9E500978508 /* PickerView */,
 				A6C010702A6C736F00ACBBB0 /* ContactViewController.storyboard */,
 				A6C010722A6C737B00ACBBB0 /* ContactViewController.swift */,
 				A6C010762A6E790B00ACBBB0 /* ContactTableViewCell.swift */,
@@ -271,6 +283,7 @@
 				A6C010712A6C736F00ACBBB0 /* ContactViewController.storyboard in Resources */,
 				A6C010492A6C70EE00ACBBB0 /* Assets.xcassets in Resources */,
 				A6C0107C2A6F04AD00ACBBB0 /* UserDetailViewController.storyboard in Resources */,
+				A6342EE22A75B9FD00978508 /* ContactPickerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +311,12 @@
 				A6C010772A6E790B00ACBBB0 /* ContactTableViewCell.swift in Sources */,
 				A6C0107A2A6F049100ACBBB0 /* UserDetailViewController.swift in Sources */,
 				A6C0107E2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift in Sources */,
+				A609CCFF2A75BCED00459630 /* ContactsApp.xcdatamodeld in Sources */,
+				A6342EE42A75BA1500978508 /* ContacPickerViewController.swift in Sources */,
 				A69DC91D2A6FC7F50067F580 /* UserInfoTableViewCell.swift in Sources */,
 				A6C010402A6C70EC00ACBBB0 /* AppDelegate.swift in Sources */,
 				A6C010422A6C70EC00ACBBB0 /* SceneDelegate.swift in Sources */,
 				A6C010732A6C737B00ACBBB0 /* ContactViewController.swift in Sources */,
-				A6D9FF4E2A71155500CBED88 /* ContactPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +642,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A609CCFD2A75BCED00459630 /* ContactsApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A609CCFE2A75BCED00459630 /* ContactsApp.xcdatamodel */,
+			);
+			currentVersion = A609CCFE2A75BCED00459630 /* ContactsApp.xcdatamodel */;
+			path = ContactsApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A6C010342A6C70EC00ACBBB0 /* Project object */;
 }

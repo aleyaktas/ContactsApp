@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User Detail View Controller-->
+        <!--User DetailVC-->
         <scene sceneID="iFY-L8-Svf">
             <objects>
-                <viewController storyboardIdentifier="UserDetailViewController" id="i0z-Hd-UXy" customClass="UserDetailViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDetailVC" id="i0z-Hd-UXy" customClass="UserDetailVC" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9mQ-HQ-P6C">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

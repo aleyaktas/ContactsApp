@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
                 
                 let window = UIWindow(windowScene: windowScene)
-                let storyboard = UIStoryboard(name: "ContactViewController", bundle: nil)
+                let storyboard = UIStoryboard(name: "ContactVC", bundle: nil)
                 
-                guard let mainVC = storyboard.instantiateViewController(withIdentifier: "ContactViewController") as? ContactViewController else {
+                guard let mainVC = storyboard.instantiateViewController(withIdentifier: "ContactVC") as? ContactVC else {
                     return
                 }
                 window.rootViewController = UINavigationController(rootViewController: mainVC)

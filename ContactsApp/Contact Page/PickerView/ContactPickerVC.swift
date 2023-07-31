@@ -11,7 +11,7 @@ protocol ContactPickerViewDelegate {
     func didSelectContactType(_ type: ContactUserType)
 }
 
-class ContactPickerViewController: UIViewController {
+class ContactPickerVC: UIViewController {
     
     @IBOutlet weak var topView: UIView!
     
@@ -36,7 +36,7 @@ class ContactPickerViewController: UIViewController {
     }
 }
 
-extension ContactPickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ContactPickerVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

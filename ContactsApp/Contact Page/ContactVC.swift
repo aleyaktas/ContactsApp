@@ -1,5 +1,5 @@
 //
-//  ContactViewController.swift
+//  ContactVC.swift
 //  ContactsApp
 //
 //  Created by Aleyna Aktaş on 22.07.2023.
@@ -97,7 +97,7 @@ class Contacts {
     ]
 }
 
-class ContactViewController: UIViewController {
+class ContactVC: UIViewController {
 
     @IBOutlet weak var contactTableView: UITableView!
     
@@ -115,25 +115,41 @@ class ContactViewController: UIViewController {
         
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .done, target: self, action: #selector(filterButtonAct))
         filterButton.tintColor = UIColor(named: "pink")
-        navigationItem.rightBarButtonItem = filterButton
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"), style: .done, target: self, action: #selector(addButtonAct))
+               addButton.tintColor = UIColor(named: "pink")
+               
+        navigationItem.rightBarButtonItem = addButton
+        navigationItem.leftBarButtonItem = filterButton
+        
+       
     }
     @objc private func filterButtonAct() {
-        let storyboard = UIStoryboard(name: "ContactPickerViewController", bundle: nil)
-        if let vc = storyboard.instantiateViewController(identifier: "ContactPickerViewController") as? ContactPickerViewController {
+        let storyboard = UIStoryboard(name: "ContactPickerVC", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "ContactPickerVC") as? ContactPickerVC {
             vc.delegate = self
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated: true)
         }
     }
+    
+    @objc private func addButtonAct() {
+        let storyboard = UIStoryboard(name: "AddModalVC", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "AddModalVC") as? AddModalVC {
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
+    }
 }
 
-extension ContactViewController: ContactPickerViewDelegate {
+extension ContactVC: ContactPickerViewDelegate {
     func didSelectContactType(_ type: ContactUserType) {
         selectedContactType = type
     }
 }
 
-extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
+extension ContactVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return setSections().count
@@ -162,9 +178,9 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let storyboard = UIStoryboard(name: "UserDetailViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: "UserDetailVC", bundle: nil)
         
-        if let webVC = storyboard.instantiateViewController(withIdentifier: "UserDetailViewController") as? UserDetailViewController {
+        if let webVC = storyboard.instantiateViewController(withIdentifier: "UserDetailVC") as? UserDetailVC {
             let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender.genderType
             let userName = filterContactUsers(indexPath.section)[indexPath.row].name
             let contactType = filterContactUsers(indexPath.section)[indexPath.row].contactType.contactType

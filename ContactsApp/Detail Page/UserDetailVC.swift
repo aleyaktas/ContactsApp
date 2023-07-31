@@ -1,5 +1,5 @@
 //
-//  UserDetailViewController.swift
+//  UserDetailVC.swift
 //  ContactsApp
 //
 //  Created by Aleyna Aktaş on 24.07.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserDetailViewController: UIViewController {
+class UserDetailVC: UIViewController {
 
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usersCollectionView: UICollectionView!
@@ -79,7 +79,7 @@ class UserDetailViewController: UIViewController {
 
 }
 
-extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension UserDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userList.count
     }
@@ -108,7 +108,7 @@ extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension UserDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userInfoTitles.count
     }

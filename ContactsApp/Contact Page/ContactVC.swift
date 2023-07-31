@@ -103,7 +103,7 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
         
-        cell.cellTitleLabel.text = filterContactUsers(indexPath.section)[indexPath.row].fullName
+        cell.cellTitleLabel.text = (filterContactUsers(indexPath.section)[indexPath.row].name ?? "No Name") + " " + (filterContactUsers(indexPath.section)[indexPath.row].surname ?? "No Surname")
         cell.cellImageView.backgroundColor = UIColor(named: "gray")
         cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
         let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender == true ? "Female" : "Male"
@@ -118,7 +118,7 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
         
         if let webVC = storyboard.instantiateViewController(withIdentifier: "UserDetailVC") as? UserDetailVC {
             let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender == true ? "Female" : "Male"
-            let userName = filterContactUsers(indexPath.section)[indexPath.row].fullName
+            let userName =  (filterContactUsers(indexPath.section)[indexPath.row].name ?? "No Name") + " " + (filterContactUsers(indexPath.section)[indexPath.row].surname ?? "No Surname")
             let contactType = filterContactUsers(indexPath.section)[indexPath.row].contactType
             let phoneNumber = filterContactUsers(indexPath.section)[indexPath.row].phoneNumber
             let selectedUser = filterContactUsers(indexPath.section)[indexPath.row]
@@ -147,7 +147,18 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
             self.contactTableView.reloadData()
         }
         
-        return [deleteAction]
+        let updateAction = UITableViewRowAction(style: .normal, title: "Update") {( action: UITableViewRowAction,indexPath: IndexPath) ->
+            Void in
+            let storyboard = UIStoryboard(name: "AddUserVC", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "AddUserVC") as? AddUserVC {
+                self.navigationController?.show(vc, sender: nil)
+                let user = self.contactUsers[indexPath.row]
+                vc.user = user
+            }
+            
+        }
+        
+        return [deleteAction, updateAction]
     }
     
     private func setSections() -> [String] {

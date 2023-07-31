@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in the information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad3-jC-Q0U">
-                                <rect key="frame" x="47.666666666666657" y="159" width="298" height="28.666666666666657"/>
+                                <rect key="frame" x="47.666666666666657" y="109" width="298" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VLP-dp-QUF">
-                                <rect key="frame" x="20" y="217.66666666666663" width="353" height="150"/>
+                                <rect key="frame" x="20" y="167.66666666666666" width="353" height="149.99999999999997"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Z8-ud-dh1">
                                         <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="150"/>
@@ -36,7 +36,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Female" translatesAutoresizingMaskIntoConstraints="NO" id="sFw-vr-SHB">
-                                                <rect key="frame" x="33.333333333333343" y="50.000000000000028" width="100" height="100"/>
+                                                <rect key="frame" x="33.333333333333343" y="50" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Oo5-c0-mJL"/>
                                                     <constraint firstAttribute="width" constant="100" id="RB5-ar-Uhn"/>
@@ -61,7 +61,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Male" translatesAutoresizingMaskIntoConstraints="NO" id="nVR-oD-7qz">
-                                                <rect key="frame" x="33" y="50.000000000000028" width="100" height="100"/>
+                                                <rect key="frame" x="33" y="50" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="8Ej-mx-9Zs"/>
                                                     <constraint firstAttribute="width" constant="100" id="D7b-2S-gCp"/>
@@ -83,7 +83,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zPS-Df-QTu">
-                                <rect key="frame" x="20" y="417.66666666666669" width="353" height="40"/>
+                                <rect key="frame" x="20" y="367.66666666666669" width="353" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IvD-yo-JrP"/>
                                 </constraints>
@@ -91,7 +91,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIK-fH-lUj">
-                                <rect key="frame" x="20" y="477.66666666666669" width="353" height="40.000000000000057"/>
+                                <rect key="frame" x="20" y="427.66666666666669" width="353" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6Ud-Ak-Rcj"/>
                                 </constraints>
@@ -99,7 +99,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbH-Yx-4bX">
-                                <rect key="frame" x="20" y="537.66666666666663" width="353" height="40"/>
+                                <rect key="frame" x="20" y="487.66666666666669" width="353" height="40.000000000000057"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qSo-m5-C8o"/>
                                 </constraints>
@@ -119,11 +119,11 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="addButtonAct:" destination="uWm-yk-VWY" eventType="touchUpInside" id="2nW-qH-CSz"/>
+                                    <action selector="buttonAct:" destination="uWm-yk-VWY" eventType="touchUpInside" id="m0J-aJ-pyA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-9a-cnu">
-                                <rect key="frame" x="20" y="597.66666666666663" width="353" height="40"/>
+                                <rect key="frame" x="20" y="547.66666666666663" width="353" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NrK-16-xuq"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="cJF-q3-ss6"/>
@@ -137,7 +137,7 @@
                         <constraints>
                             <constraint firstItem="nXy-95-igN" firstAttribute="trailing" secondItem="zPS-Df-QTu" secondAttribute="trailing" constant="20" id="8UI-fR-kR5"/>
                             <constraint firstItem="zPS-Df-QTu" firstAttribute="top" secondItem="VLP-dp-QUF" secondAttribute="bottom" constant="50" id="8Uy-Tf-e3M"/>
-                            <constraint firstItem="Ad3-jC-Q0U" firstAttribute="top" secondItem="nXy-95-igN" secondAttribute="top" constant="100" id="BNx-KM-xxU"/>
+                            <constraint firstItem="Ad3-jC-Q0U" firstAttribute="top" secondItem="nXy-95-igN" secondAttribute="top" constant="50" id="BNx-KM-xxU"/>
                             <constraint firstItem="nXy-95-igN" firstAttribute="trailing" secondItem="W0o-Hp-gC2" secondAttribute="trailing" constant="20" id="FTw-OL-T9W"/>
                             <constraint firstItem="W0o-Hp-gC2" firstAttribute="leading" secondItem="nXy-95-igN" secondAttribute="leading" constant="20" id="HSI-BY-ZCk"/>
                             <constraint firstItem="nXy-95-igN" firstAttribute="trailing" secondItem="BIK-fH-lUj" secondAttribute="trailing" constant="20" id="SIm-yB-xP9"/>
@@ -160,12 +160,14 @@
                     <connections>
                         <outlet property="boyText" destination="MRj-Ab-t13" id="tHf-om-Eae"/>
                         <outlet property="boyView" destination="2Of-dQ-yZn" id="4Ye-sS-S9j"/>
+                        <outlet property="buttonType" destination="W0o-Hp-gC2" id="R4q-ol-Yti"/>
                         <outlet property="girlText" destination="eG4-C2-aKP" id="r4W-hn-DM9"/>
                         <outlet property="girlView" destination="2Z8-ud-dh1" id="kD4-2k-axv"/>
                         <outlet property="nameTextField" destination="zPS-Df-QTu" id="RYS-Sj-slT"/>
                         <outlet property="phoneTextField" destination="jbH-Yx-4bX" id="XzF-6f-uav"/>
                         <outlet property="selectGroupTextField" destination="eBa-9a-cnu" id="n1F-hP-9Hl"/>
                         <outlet property="surnameTextField" destination="BIK-fH-lUj" id="bV5-N6-8ZP"/>
+                        <outlet property="titleText" destination="Ad3-jC-Q0U" id="bbI-aR-M0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLh-US-nzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

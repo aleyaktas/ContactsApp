@@ -17,8 +17,11 @@ class AddUserVC: UIViewController {
     @IBOutlet weak var surnameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var selectGroupTextField: UITextField!
+    @IBOutlet weak var buttonType: UIButton!
+    @IBOutlet weak var titleText: UILabel!
     
     var isSelectGirl = true
+    var user: ContactUsers?
     
     let context = appDelegate.persistentContainer.viewContext
     
@@ -33,7 +36,17 @@ class AddUserVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(isSelectGirl)
+        if let user {
+            titleText.text = "Update user information"
+            isSelectGirl = user.gender
+            nameTextField.text = user.name
+            surnameTextField.text = user.surname
+            phoneTextField.text = user.phoneNumber
+            selectedContactType = user.contactType
+            selectGroupTextField.text = user.contactType
+            buttonType.setTitle("Update", for: .normal)
+            buttonType.tag = 1
+        }
         
         let girlTapGesture = UITapGestureRecognizer(target: self, action: #selector(girlViewAct))
         let boyTapGesture = UITapGestureRecognizer(target: self, action: #selector(boyViewAct))
@@ -75,22 +88,48 @@ class AddUserVC: UIViewController {
             self.present(vc, animated: true)
         }
     }
-    @IBAction func addButtonAct(_ sender: UIButton) {
+    @IBAction func buttonAct(_ sender: UIButton) {
+        print(nameTextField.text!,surnameTextField.text!,phoneTextField.text!,selectedContactType!)
         if let name = nameTextField.text,
            let surname = surnameTextField.text,
            let phone = phoneTextField.text,
            let contactType = selectedContactType
         {
-            let user = ContactUsers(context: context)
+            if buttonType.tag == 0 {
+                print("0")
+                // Yeni bir kullanıcı eklemek için ContactUsers nesnesini oluşturup verileri atayalım
+                let newUser = ContactUsers(context: context)
+                newUser.name = name
+                newUser.surname = surname
+                newUser.phoneNumber = phone
+                newUser.gender = Bool(isSelectGirl)
+                newUser.contactType = contactType
+            } else {
+                print("1")
+
+                // Mevcut kullanıcıyı güncellemek için self.user'ı kontrol edelim
+                if let existingUser = self.user {
+                    existingUser.name = name
+                    existingUser.surname = surname
+                    existingUser.phoneNumber = phone
+                    existingUser.gender = Bool(isSelectGirl)
+                    existingUser.contactType = contactType
+                } else {
+                    print("2")
+                    // Hata durumunda uygulama buraya gelebilir
+                    // Eğer burada uygun bir çözüm yoksa hata yönetimi yapılmalıdır
+                    return
+                }
+            }
+            print("3")
+
             
-            user.fullName = name + " " + surname
-            user.phoneNumber = phone
-            user.gender = Bool(isSelectGirl)
-            user.contactType = contactType
             appDelegate.saveContext()
             self.navigationController?.popViewController(animated: true)
         }
     }
+
+
 }
     
  

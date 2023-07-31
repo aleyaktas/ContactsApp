@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct ContactUserModel: Equatable {
     var name: String
@@ -97,7 +98,14 @@ class Contacts {
     ]
 }
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+
 class ContactVC: UIViewController {
+    
+    let context = appDelegate.persistentContainer.viewContext
+    
+    var contactUsers = [ContactUsers]()
 
     @IBOutlet weak var contactTableView: UITableView!
     
@@ -124,6 +132,9 @@ class ContactVC: UIViewController {
         
        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        getAllUsers()
+    }
     @objc private func filterButtonAct() {
         let storyboard = UIStoryboard(name: "ContactPickerVC", bundle: nil)
         if let vc = storyboard.instantiateViewController(identifier: "ContactPickerVC") as? ContactPickerVC {
@@ -139,6 +150,14 @@ class ContactVC: UIViewController {
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
+        }
+    }
+    
+    func getAllUsers() {
+        do {
+            contactUsers = try context.fetch(ContactUsers.fetchRequest())
+        } catch {
+            print(error)
         }
     }
 }

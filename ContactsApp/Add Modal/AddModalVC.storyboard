@@ -91,6 +91,9 @@
                                                     </backgroundConfiguration>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addButtonAct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1BD-AT-O7J"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

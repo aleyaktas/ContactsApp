@@ -9,6 +9,8 @@ import UIKit
 
 class AddModalVC: UIViewController, UITextFieldDelegate {
     
+    let context = appDelegate.persistentContainer.viewContext
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -31,5 +33,18 @@ class AddModalVC: UIViewController, UITextFieldDelegate {
         dismiss(animated: true)
     }
     
+    @IBAction func addButtonAct(_ sender: UIButton) {
+        if let name = nameTextField.text,
+           let surname = surnameTextField.text,
+           let phone = phoneTextField.text {
+            let gender = genderType.selectedSegmentIndex
+            let user = ContactUsers(context: context)
+            user.name = name + " " + surname
+            user.phoneNumber = phone
+            user.gender = String(gender)
+            appDelegate.saveContext()
+            dismiss(animated: true, completion: nil)
+        }
+    }
     
 }

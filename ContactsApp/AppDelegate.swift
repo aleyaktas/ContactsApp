@@ -33,16 +33,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     lazy var persistentContainer: NSPersistentContainer = {
-            
-            let container = NSPersistentContainer(name: "ContactsApp")
+        let container = NSPersistentContainer(name: "ContactsApp")
         
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
-            return container
-        }()
+        // Kalıcı mağazayı oluştururken otomatik hafif dönüşümü etkinleştirme
+        let description = NSPersistentStoreDescription()
+        description.shouldMigrateStoreAutomatically = true
+        description.shouldInferMappingModelAutomatically = true
+        container.persistentStoreDescriptions = [description]
+        
+        // Kalıcı mağazaları yükleme
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Çözümlenemeyen hata \(error), \(error.userInfo)")
+            }
+        })
+        
+        return container
+    }()
+
         
         // MARK: - Core Data Saving support
         

@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A609CCFF2A75BCED00459630 /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A609CCFD2A75BCED00459630 /* ContactsApp.xcdatamodeld */; };
-		A62F7DF42A77B7D0001CD311 /* AddModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62F7DF32A77B7D0001CD311 /* AddModalVC.swift */; };
-		A62F7DF82A77BB23001CD311 /* AddModalVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62F7DF72A77BB23001CD311 /* AddModalVC.storyboard */; };
+		A62F7DFB2A77F898001CD311 /* AddUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62F7DFA2A77F898001CD311 /* AddUserVC.swift */; };
+		A62F7DFD2A77F8A2001CD311 /* AddUserVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62F7DFC2A77F8A2001CD311 /* AddUserVC.storyboard */; };
 		A6342EE22A75B9FD00978508 /* ContactPickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6342EE12A75B9FD00978508 /* ContactPickerVC.storyboard */; };
 		A6342EE42A75BA1500978508 /* ContactPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6342EE32A75BA1500978508 /* ContactPickerVC.swift */; };
 		A69DC91D2A6FC7F50067F580 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */; };
@@ -26,6 +25,7 @@
 		A6C0107A2A6F049100ACBBB0 /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C010792A6F049100ACBBB0 /* UserDetailVC.swift */; };
 		A6C0107C2A6F04AD00ACBBB0 /* UserDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C0107B2A6F04AD00ACBBB0 /* UserDetailVC.storyboard */; };
 		A6C0107E2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C0107D2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift */; };
+		A6FCA5FF2A78498700F030AA /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6FCA5FD2A78498700F030AA /* ContactsApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A609CCFE2A75BCED00459630 /* ContactsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsApp.xcdatamodel; sourceTree = "<group>"; };
-		A62F7DF32A77B7D0001CD311 /* AddModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModalVC.swift; sourceTree = "<group>"; };
-		A62F7DF72A77BB23001CD311 /* AddModalVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddModalVC.storyboard; sourceTree = "<group>"; };
+		A62F7DFA2A77F898001CD311 /* AddUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserVC.swift; sourceTree = "<group>"; };
+		A62F7DFC2A77F8A2001CD311 /* AddUserVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUserVC.storyboard; sourceTree = "<group>"; };
 		A6342EE12A75B9FD00978508 /* ContactPickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactPickerVC.storyboard; sourceTree = "<group>"; };
 		A6342EE32A75BA1500978508 /* ContactPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerVC.swift; sourceTree = "<group>"; };
 		A69DC91C2A6FC7F50067F580 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		A6C010792A6F049100ACBBB0 /* UserDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
 		A6C0107B2A6F04AD00ACBBB0 /* UserDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetailVC.storyboard; sourceTree = "<group>"; };
 		A6C0107D2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6FCA5FE2A78498700F030AA /* ContactsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A62F7DF22A77B7BD001CD311 /* Add Modal */ = {
+		A62F7DF92A77F882001CD311 /* Add User Page */ = {
 			isa = PBXGroup;
 			children = (
-				A62F7DF32A77B7D0001CD311 /* AddModalVC.swift */,
-				A62F7DF72A77BB23001CD311 /* AddModalVC.storyboard */,
+				A62F7DFA2A77F898001CD311 /* AddUserVC.swift */,
+				A62F7DFC2A77F8A2001CD311 /* AddUserVC.storyboard */,
 			);
-			path = "Add Modal";
+			path = "Add User Page";
 			sourceTree = "<group>";
 		};
 		A6342EE02A75B9E500978508 /* PickerView */ = {
@@ -137,7 +137,7 @@
 		A6C0103E2A6C70EC00ACBBB0 /* ContactsApp */ = {
 			isa = PBXGroup;
 			children = (
-				A62F7DF22A77B7BD001CD311 /* Add Modal */,
+				A62F7DF92A77F882001CD311 /* Add User Page */,
 				A6C010782A6F047100ACBBB0 /* Detail Page */,
 				A6C0106F2A6C72F100ACBBB0 /* Contact Page */,
 				A6C0103F2A6C70EC00ACBBB0 /* AppDelegate.swift */,
@@ -145,7 +145,7 @@
 				A6C010482A6C70EE00ACBBB0 /* Assets.xcassets */,
 				A6C0104A2A6C70EE00ACBBB0 /* LaunchScreen.storyboard */,
 				A6C0104D2A6C70EE00ACBBB0 /* Info.plist */,
-				A609CCFD2A75BCED00459630 /* ContactsApp.xcdatamodeld */,
+				A6FCA5FD2A78498700F030AA /* ContactsApp.xcdatamodeld */,
 			);
 			path = ContactsApp;
 			sourceTree = "<group>";
@@ -295,8 +295,8 @@
 			files = (
 				A6C0104C2A6C70EE00ACBBB0 /* LaunchScreen.storyboard in Resources */,
 				A6C010712A6C736F00ACBBB0 /* ContactVC.storyboard in Resources */,
+				A62F7DFD2A77F8A2001CD311 /* AddUserVC.storyboard in Resources */,
 				A6C010492A6C70EE00ACBBB0 /* Assets.xcassets in Resources */,
-				A62F7DF82A77BB23001CD311 /* AddModalVC.storyboard in Resources */,
 				A6C0107C2A6F04AD00ACBBB0 /* UserDetailVC.storyboard in Resources */,
 				A6342EE22A75B9FD00978508 /* ContactPickerVC.storyboard in Resources */,
 			);
@@ -323,13 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6FCA5FF2A78498700F030AA /* ContactsApp.xcdatamodeld in Sources */,
 				A6C010772A6E790B00ACBBB0 /* ContactTableViewCell.swift in Sources */,
 				A6C0107A2A6F049100ACBBB0 /* UserDetailVC.swift in Sources */,
 				A6C0107E2A6F0C8F00ACBBB0 /* UserDetailCollectionViewCell.swift in Sources */,
-				A609CCFF2A75BCED00459630 /* ContactsApp.xcdatamodeld in Sources */,
+				A62F7DFB2A77F898001CD311 /* AddUserVC.swift in Sources */,
 				A6342EE42A75BA1500978508 /* ContactPickerVC.swift in Sources */,
 				A69DC91D2A6FC7F50067F580 /* UserInfoTableViewCell.swift in Sources */,
-				A62F7DF42A77B7D0001CD311 /* AddModalVC.swift in Sources */,
 				A6C010402A6C70EC00ACBBB0 /* AppDelegate.swift in Sources */,
 				A6C010422A6C70EC00ACBBB0 /* SceneDelegate.swift in Sources */,
 				A6C010732A6C737B00ACBBB0 /* ContactVC.swift in Sources */,
@@ -660,12 +660,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A609CCFD2A75BCED00459630 /* ContactsApp.xcdatamodeld */ = {
+		A6FCA5FD2A78498700F030AA /* ContactsApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A609CCFE2A75BCED00459630 /* ContactsApp.xcdatamodel */,
+				A6FCA5FE2A78498700F030AA /* ContactsApp.xcdatamodel */,
 			);
-			currentVersion = A609CCFE2A75BCED00459630 /* ContactsApp.xcdatamodel */;
+			currentVersion = A6FCA5FE2A78498700F030AA /* ContactsApp.xcdatamodel */;
 			path = ContactsApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

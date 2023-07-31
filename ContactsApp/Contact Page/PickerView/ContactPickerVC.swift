@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ContactPickerViewDelegate {
-    func didSelectContactType(_ type: ContactUserType)
+    func didSelectContactType(_ type: String)
 }
 
 class ContactPickerVC: UIViewController {
@@ -17,7 +17,7 @@ class ContactPickerVC: UIViewController {
     
     @IBOutlet weak var filterPickerView: UIPickerView!
     
-    private var selectedContactType: ContactUserType?
+    private var selectedContactType: String?
     var delegate: ContactPickerViewDelegate?
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class ContactPickerVC: UIViewController {
     }
     
     @IBAction func doneButtonAct(_ sender: UIButton) {
-        delegate?.didSelectContactType(selectedContactType ?? .allContacts)
+        delegate?.didSelectContactType(selectedContactType ?? "All Contacts")
         dismiss(animated: true)
     }
 }
@@ -42,15 +42,15 @@ extension ContactPickerVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return ContactUserType.allCases.count
+        return contactUsersType.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ContactUserType.allCases[row].contactType
+        return contactUsersType[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedContactType = ContactUserType.allCases[row]
+        selectedContactType = contactUsersType[row]
   }
     
 }

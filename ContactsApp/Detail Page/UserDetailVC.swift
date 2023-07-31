@@ -22,7 +22,7 @@ class UserDetailVC: UIViewController {
     var userName: String?
     var contactType: String?
     var phoneNumber: String?
-    var userList: [ContactUserModel] = []
+    var userList: [ContactUsers] = []
     
     var userInfoTitles = ["Name", "Contact Type", "Phone Number"]
 
@@ -87,8 +87,8 @@ extension UserDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserDetailCollectionViewCell", for: indexPath) as! UserDetailCollectionViewCell
-        let userImage = userList[indexPath.row].gender.genderType
-        cell.name.text = userList[indexPath.row].name
+        let userImage = userList[indexPath.row].gender == true ? "Female" : "Male"
+        cell.name.text = userList[indexPath.row].fullName
         cell.image.image = UIImage(named: userImage)
         cell.image.backgroundColor = UIColor(named: "gray")
         cell.image.layer.cornerRadius = cell.image.layer.frame.height / 2

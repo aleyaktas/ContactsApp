@@ -8,99 +8,12 @@
 import UIKit
 import CoreData
 
-//struct ContactUserModel: Equatable {
-//    var name: String
-//    var gender: Gender
-//    var phoneNumber: String
-//    var contactType: ContactUserType
-//
-//    static func == (lhs: ContactUserModel, rhs: ContactUserModel) -> Bool {
-//        return lhs.name == rhs.name &&
-//               lhs.gender == rhs.gender &&
-//               lhs.phoneNumber == rhs.phoneNumber &&
-//               lhs.contactType == rhs.contactType
-//    }
-//}
-
-//enum ContactUserType: CaseIterable {
-//    case allContacts
-//    case family
-//    case friends
-//    case work
-//    case neighbors
-//    case university
-//
-//    var contactType: String {
-//        switch self {
-//            case .allContacts:
-//                return "AllContacts"
-//            case .family:
-//                return "Family"
-//            case .friends:
-//                return "Friends"
-//            case .work:
-//                return "Work"
-//            case .neighbors:
-//                return "Neighbors"
-//            case .university:
-//                return "University"
-//        }
-//    }
-//}
-
-//enum Gender: CaseIterable {
-//    case male
-//    case female
-//
-//    var genderType: String {
-//        switch self {
-//        case .female:
-//            return "Female"
-//        case .male:
-//            return "Male"
-//        }
-//    }
-//}
-
-//
-//class Contacts {
-//    static let contacts: [ContactUserModel] = [
-//        ContactUserModel(name: "John Doe", gender: .male, phoneNumber: "123-456-7890", contactType: .family),
-//        ContactUserModel(name: "Jane Smith", gender: .female, phoneNumber: "987-654-3210", contactType: .family),
-//        ContactUserModel(name: "Emily Davis", gender: .female, phoneNumber: "777-666-5555", contactType: .family),
-//        ContactUserModel(name: "Jimmy John", gender: .male, phoneNumber: "555-123-4567", contactType: .family),
-//        ContactUserModel(name: "Robert Lee", gender: .male, phoneNumber: "222-999-3333", contactType: .family),
-//        ContactUserModel(name: "Sophia Anna", gender: .female, phoneNumber: "444-555-6666", contactType: .family),
-//
-//        ContactUserModel(name: "Alice Brown", gender: .female, phoneNumber: "444-777-8888", contactType: .friends),
-//        ContactUserModel(name: "Will Taylor", gender: .male, phoneNumber: "666-888-9999", contactType: .friends),
-//        ContactUserModel(name: "Oliver Harris", gender: .male, phoneNumber: "111-333-5555", contactType: .friends),
-//        ContactUserModel(name: "Lucas Carter", gender: .male, phoneNumber: "555-777-8888", contactType: .friends),
-//        ContactUserModel(name: "Ella Wilson", gender: .female, phoneNumber: "888-222-4444", contactType: .friends),
-//
-//        ContactUserModel(name: "David Miller", gender: .male, phoneNumber: "888-222-4444", contactType: .work),
-//        ContactUserModel(name: "Emily Davis", gender: .female, phoneNumber: "777-666-5555", contactType: .work),
-//        ContactUserModel(name: "Ava White", gender: .female, phoneNumber: "888-777-4444", contactType: .work),
-//        ContactUserModel(name: "Sarah Wilson", gender: .female, phoneNumber: "111-333-5555", contactType: .work),
-//
-//        ContactUserModel(name: "James Ander", gender: .male, phoneNumber: "444-555-6666", contactType: .neighbors),
-//        ContactUserModel(name: "Olivia Martin", gender: .female, phoneNumber: "222-333-4444", contactType: .neighbors),
-//        ContactUserModel(name: "Noah Green", gender: .male, phoneNumber: "111-555-9999", contactType: .neighbors),
-//        ContactUserModel(name: "Ethan Hall", gender: .male, phoneNumber: "333-222-1111", contactType: .neighbors),
-//        ContactUserModel(name: "Lily Murphy", gender: .female, phoneNumber: "777-888-9999", contactType: .neighbors),
-//
-//        ContactUserModel(name: "Liam Robin", gender: .male, phoneNumber: "333-222-1111", contactType: .university),
-//        ContactUserModel(name: "Ava White", gender: .female, phoneNumber: "888-777-4444", contactType: .university),
-//        ContactUserModel(name: "Noah Green", gender: .male, phoneNumber: "111-555-9999", contactType: .university),
-//        ContactUserModel(name: "Emma Turner", gender: .female, phoneNumber: "222-333-4444", contactType: .university),
-//        ContactUserModel(name: "Mason King", gender: .male, phoneNumber: "555-777-8888", contactType: .university),
-//        ContactUserModel(name: "Olivia Brown", gender: .female, phoneNumber: "444-777-8888", contactType: .university)
-//    ]
-//}
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 let contactUsersType = ["All Contacts", "Family", "Work", "Friends", "Neighbors", "University"]
+
+let fetchRequest: NSFetchRequest<ContactUsers> = ContactUsers.fetchRequest()
 
 
 class ContactVC: UIViewController {
@@ -121,6 +34,9 @@ class ContactVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Your Contacts"
+        getAllUsers()
+        contactTableView.reloadData()
+        
         contactTableView.delegate = self
         contactTableView.dataSource = self
         let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .done, target: self, action: #selector(filterButtonAct))
@@ -136,12 +52,6 @@ class ContactVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getAllUsers()
-        if !contactUsers.isEmpty {
-            print(contactUsers[0].fullName, contactUsers[0].phoneNumber, contactUsers[0].gender, contactUsers[0].contactType)
-
-        }else {
-            print("lşvkd")
-        }
         contactTableView.reloadData()
     }
     
@@ -156,15 +66,15 @@ class ContactVC: UIViewController {
     
     @objc private func addButtonAct() {
         let storyboard = UIStoryboard(name: "AddUserVC", bundle: nil)
-        if let vc = storyboard.instantiateViewController(identifier: "AddUserVC") as? AddUserVC {
-            navigationController?.pushViewController(vc, animated: true)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "AddUserVC") as? AddUserVC {
+            navigationController?.show(vc, sender: nil)
         }
     }
     
     func getAllUsers() {
         do {
-            contactUsers = try context.fetch(ContactUsers.fetchRequest())
-        } catch {
+            contactUsers = try context.fetch(fetchRequest)
+         } catch {
             print(error)
         }
     }
@@ -183,7 +93,7 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactUsers.filter({ $0.contactType == contactUsersType[section] }).count
+        return filterContactUsers(section).count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -226,6 +136,18 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
             
             self.navigationController?.pushViewController(webVC, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") {( action: UITableViewRowAction,indexPath: IndexPath) ->
+            Void in
+            let user = self.contactUsers[indexPath.row]
+            self.context.delete(user)
+            appDelegate.saveContext()
+            self.contactTableView.reloadData()
+        }
+        
+        return [deleteAction]
     }
     
     private func setSections() -> [String] {

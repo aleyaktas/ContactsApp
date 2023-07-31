@@ -34,14 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ContactsApp")
-        
-        // Kalıcı mağazayı oluştururken otomatik hafif dönüşümü etkinleştirme
         let description = NSPersistentStoreDescription()
         description.shouldMigrateStoreAutomatically = true
         description.shouldInferMappingModelAutomatically = true
         container.persistentStoreDescriptions = [description]
         
-        // Kalıcı mağazaları yükleme
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Çözümlenemeyen hata \(error), \(error.userInfo)")
@@ -66,6 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Core Data verilerini kaydet
+        appDelegate.saveContext()
+    }
 
 }
 

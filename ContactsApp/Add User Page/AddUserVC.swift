@@ -32,15 +32,15 @@ class AddUserVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         print(isSelectGirl)
-
+        
         let girlTapGesture = UITapGestureRecognizer(target: self, action: #selector(girlViewAct))
         let boyTapGesture = UITapGestureRecognizer(target: self, action: #selector(boyViewAct))
-
+        
         girlView.addGestureRecognizer(girlTapGesture)
         boyView.addGestureRecognizer(boyTapGesture)
-
+        
         girlView.backgroundColor = UIColor(named: "gray")
         girlView.layer.cornerRadius = 12
         boyView.backgroundColor = UIColor.white
@@ -48,8 +48,8 @@ class AddUserVC: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped))
         selectGroupTextField.addGestureRecognizer(tapGesture)
-
-
+        
+        
     }
     
     @objc func girlViewAct() {
@@ -58,12 +58,13 @@ class AddUserVC: UIViewController {
         girlText.textColor = UIColor(named: "pink")
         boyText.textColor = UIColor.gray
     }
-
+    
     @objc func boyViewAct() {
         boyView.backgroundColor = UIColor(named: "gray")
         girlView.backgroundColor = UIColor.white
         girlText.textColor = UIColor.gray
         boyText.textColor = UIColor.systemBlue
+        isSelectGirl = false
     }
     
     @objc func textFieldTapped() {
@@ -85,12 +86,14 @@ class AddUserVC: UIViewController {
             user.fullName = name + " " + surname
             user.phoneNumber = phone
             user.gender = Bool(isSelectGirl)
-            user.contactType = String(describing: contactType)
+            user.contactType = contactType
             appDelegate.saveContext()
-            dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
+    
+ 
 
 extension AddUserVC: ContactPickerViewDelegate {
     func didSelectContactType(_ type: String) {

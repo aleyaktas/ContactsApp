@@ -11,14 +11,13 @@ import CoreData
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-let contactUsersType = ["All Contacts", "Family", "Work", "Friends", "Neighbors", "University"]
-
-let fetchRequest: NSFetchRequest<ContactUsers> = ContactUsers.fetchRequest()
+var contactUsersType = ["All Contacts", "Family", "Work", "Friends", "Neighbors", "University"]
 
 
 class ContactVC: UIViewController {
     
     let context = appDelegate.persistentContainer.viewContext
+    let fetchRequest: NSFetchRequest<ContactUsers> = ContactUsers.fetchRequest()
     
     var contactUsers = [ContactUsers]()
 
@@ -48,11 +47,17 @@ class ContactVC: UIViewController {
         navigationItem.rightBarButtonItem = addButton
         navigationItem.leftBarButtonItem = filterButton
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getAllUsers()
         contactTableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        selectedContactType = nil
     }
     
     @objc private func filterButtonAct() {
@@ -102,15 +107,27 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
+        guard indexPath.section >= 0 && indexPath.section < numberOfSections(in: tableView) else {
+            return cell
+        }
         
-        cell.cellTitleLabel.text = (filterContactUsers(indexPath.section)[indexPath.row].name ?? "No Name") + " " + (filterContactUsers(indexPath.section)[indexPath.row].surname ?? "No Surname")
+        let usersInSection = filterContactUsers(indexPath.section)
+        guard indexPath.row >= 0 && indexPath.row < usersInSection.count else {
+            return cell
+        }
+        
+        let user = usersInSection[indexPath.row]
+        let name = user.name ?? "No Name"
+        let surname = user.surname ?? "No Surname"
+        cell.cellTitleLabel.text = name + " " + surname
         cell.cellImageView.backgroundColor = UIColor(named: "gray")
         cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
-        let imageName = filterContactUsers(indexPath.section)[indexPath.row].gender == true ? "Female" : "Male"
+        let imageName = user.gender == true ? "Female" : "Male"
         cell.cellImageView.image = UIImage(named: imageName)
         
         return cell
     }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -138,28 +155,43 @@ extension ContactVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") {( action: UITableViewRowAction,indexPath: IndexPath) ->
-            Void in
-            let user = self.contactUsers[indexPath.row]
-            self.context.delete(user)
-            appDelegate.saveContext()
-            self.contactTableView.reloadData()
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            let user = self.filterContactUsers(indexPath.section)[indexPath.row]
+            
+            let alertController = UIAlertController(title: "Delete User", message: "Are you sure you want to delete this user?", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                completion(false)
+            }))
+            alertController.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { _ in
+                self.context.delete(user)
+                appDelegate.saveContext()
+                self.contactTableView.reloadData()
+                completion(true)
+            }))
+
+            self.present(alertController, animated: true, completion: nil)
         }
+
         
-        let updateAction = UITableViewRowAction(style: .normal, title: "Update") {( action: UITableViewRowAction,indexPath: IndexPath) ->
-            Void in
+        let updateAction = UIContextualAction(style: .normal, title: "Update") { (action, view, completion) in
             let storyboard = UIStoryboard(name: "AddUserVC", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "AddUserVC") as? AddUserVC {
                 self.navigationController?.show(vc, sender: nil)
-                let user = self.contactUsers[indexPath.row]
+                let user = self.filterContactUsers(indexPath.section)[indexPath.row]
                 vc.user = user
+                completion(true)
+
             }
-            
         }
         
-        return [deleteAction, updateAction]
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
     }
+
     
     private func setSections() -> [String] {
         if let selectedContactType = selectedContactType, selectedContactType != "All Contacts" {

@@ -116,7 +116,7 @@ extension UserDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfoTableViewCell") as! UserInfoTableViewCell
         
-        let title = userInfoTitles[indexPath.row] // "row" özelliği kullanılmalı
+        let title = userInfoTitles[indexPath.row]
         var selectedValue = ""
         switch title {
             case "Name":
@@ -131,7 +131,7 @@ extension UserDetailVC: UITableViewDelegate, UITableViewDataSource {
        
        cell.cellTitleLabel.text = title
        cell.celSubTitleLabel.text = selectedValue
-           
+    
         return cell
     }
     

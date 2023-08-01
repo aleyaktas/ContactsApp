@@ -73,25 +73,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2896.9465648854962" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="3823.6641221374043" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ix3-JD-rHZ">
+        <scene sceneID="1hw-pe-PdJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ARN-kT-mPC" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XkN-CP-ijy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6Y-hT-GJd">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Puf-fg-I2I">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Gf1-Pk-e8a"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="hfT-Qu-Lbh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sau-Ls-gGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CyM-tn-S4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970.2290076335878" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2896.9465648854962" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

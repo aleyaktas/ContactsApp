@@ -12,7 +12,7 @@ protocol ContactPickerViewDelegate {
 }
 
 class ContactPickerVC: UIViewController {
-    
+        
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var filterPickerView: UIPickerView!
@@ -30,6 +30,9 @@ class ContactPickerVC: UIViewController {
         topView.addSubview(lineView)
     }
     
+    @IBAction func cancelButtonAct(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     @IBAction func doneButtonAct(_ sender: UIButton) {
         delegate?.didSelectContactType(selectedContactType ?? "All Contacts")
         dismiss(animated: true)

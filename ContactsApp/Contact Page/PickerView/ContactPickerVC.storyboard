@@ -44,6 +44,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Cancel">
                                             <color key="baseForegroundColor" red="0.78823530669999997" green="0.41568624970000001" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cancelButtonAct:" destination="Wrj-Tr-lTq" eventType="touchUpInside" id="g9g-F0-NF5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

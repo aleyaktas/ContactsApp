@@ -25,17 +25,10 @@ class AddUserVC: UIViewController {
     
     let context = appDelegate.persistentContainer.viewContext
     
-    private var selectedContactType: String? {
-        didSet {
-            if let selectedContactType {
-                print(selectedContactType)
-            }
-        }
-    }
+    private var selectedContactType: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let user {
             titleText.text = "Update user information"
             isSelectGirl = user.gender
@@ -43,9 +36,16 @@ class AddUserVC: UIViewController {
             surnameTextField.text = user.surname
             phoneTextField.text = user.phoneNumber
             selectedContactType = user.contactType
+            isSelectGirl = user.gender
             selectGroupTextField.text = user.contactType
             buttonType.setTitle("Update", for: .normal)
             buttonType.tag = 1
+        }
+        
+        if isSelectGirl {
+            girlViewAct()
+        } else {
+            boyViewAct()
         }
         
         let girlTapGesture = UITapGestureRecognizer(target: self, action: #selector(girlViewAct))
@@ -54,10 +54,12 @@ class AddUserVC: UIViewController {
         girlView.addGestureRecognizer(girlTapGesture)
         boyView.addGestureRecognizer(boyTapGesture)
         
-        girlView.backgroundColor = UIColor(named: "gray")
         girlView.layer.cornerRadius = 12
-        boyView.backgroundColor = UIColor.white
         boyView.layer.cornerRadius = 12
+        
+        navigationController?.navigationBar.tintColor = UIColor(named: "pink")
+        navigationController?.navigationBar.prefersLargeTitles = false
+
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textFieldTapped))
         selectGroupTextField.addGestureRecognizer(tapGesture)
@@ -89,15 +91,23 @@ class AddUserVC: UIViewController {
         }
     }
     @IBAction func buttonAct(_ sender: UIButton) {
-        print(nameTextField.text!,surnameTextField.text!,phoneTextField.text!,selectedContactType!)
+        
+        guard let name = nameTextField.text, !name.isEmpty,
+                  let surname = surnameTextField.text, !surname.isEmpty,
+                  let phone = phoneTextField.text, !phone.isEmpty,
+                  let _ = selectedContactType else {
+                let alertController = UIAlertController(title: "Incomplete Information", message: "Please fill in all required fields.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
+
         if let name = nameTextField.text,
            let surname = surnameTextField.text,
            let phone = phoneTextField.text,
            let contactType = selectedContactType
         {
             if buttonType.tag == 0 {
-                print("0")
-                // Yeni bir kullanıcı eklemek için ContactUsers nesnesini oluşturup verileri atayalım
                 let newUser = ContactUsers(context: context)
                 newUser.name = name
                 newUser.surname = surname
@@ -105,9 +115,6 @@ class AddUserVC: UIViewController {
                 newUser.gender = Bool(isSelectGirl)
                 newUser.contactType = contactType
             } else {
-                print("1")
-
-                // Mevcut kullanıcıyı güncellemek için self.user'ı kontrol edelim
                 if let existingUser = self.user {
                     existingUser.name = name
                     existingUser.surname = surname
@@ -115,24 +122,16 @@ class AddUserVC: UIViewController {
                     existingUser.gender = Bool(isSelectGirl)
                     existingUser.contactType = contactType
                 } else {
-                    print("2")
-                    // Hata durumunda uygulama buraya gelebilir
-                    // Eğer burada uygun bir çözüm yoksa hata yönetimi yapılmalıdır
                     return
                 }
             }
-            print("3")
-
-            
             appDelegate.saveContext()
             self.navigationController?.popViewController(animated: true)
+            
         }
+        
     }
-
-
 }
-    
- 
 
 extension AddUserVC: ContactPickerViewDelegate {
     func didSelectContactType(_ type: String) {
@@ -141,6 +140,3 @@ extension AddUserVC: ContactPickerViewDelegate {
     }
 }
 
-extension AddUserVC: UITextFieldDelegate {
-  
-}

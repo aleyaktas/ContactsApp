@@ -18,7 +18,7 @@ https://github.com/aleyaktas/ContactsApp/assets/76265779/3e11ff6a-2276-4be5-905a
 
 - **Delete Contacts**: Remove unwanted or outdated contacts from your address book with just a few taps.
 
-- **Filter Contacts**: Quickly find specific contacts using the filtering feature. Search by name or any other relevant criteria to narrow down the contact list.
+- **Filter Contacts**: Quickly find specific contacts using the filtering feature. Narrowing the contact list You can filter according to contact type.
 
 ## Getting Started
 
@@ -33,7 +33,7 @@ To run the Contacts App on your local machine, follow these steps:
 2. Open the project in Xcode:
 
 ```bash
-  cd contacts-app
+  cd ContactsApp
   open ContactsApp.xcodeproj
 ```
 

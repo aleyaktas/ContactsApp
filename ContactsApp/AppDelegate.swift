@@ -34,17 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ContactsApp")
-        let description = NSPersistentStoreDescription()
-        description.shouldMigrateStoreAutomatically = true
-        description.shouldInferMappingModelAutomatically = true
-        container.persistentStoreDescriptions = [description]
-        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("Çözümlenemeyen hata \(error), \(error.userInfo)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        
         return container
     }()
 
@@ -53,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         func saveContext () {
             let context = persistentContainer.viewContext
-            
             if context.hasChanges {
                 do {
                     try context.save()
@@ -63,10 +56,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Core Data verilerini kaydet
-        appDelegate.saveContext()
-    }
-
 }
 

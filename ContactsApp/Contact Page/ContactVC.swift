@@ -34,6 +34,7 @@ class ContactVC: UIViewController {
         super.viewDidLoad()
         title = "Your Contacts"
         getAllUsers()
+        print(contactUsers.count)
         contactTableView.reloadData()
         
         contactTableView.delegate = self
